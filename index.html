@@ -23,14 +23,8 @@
             <div class="glass-card">
                 <h2>Select Your Role</h2>
                 <div class="role-buttons">
-                    <button class="btn-role" data-role="student">
-                        <span class="icon">🎓</span>
-                        <span>Student</span>
-                    </button>
-                    <button class="btn-role" data-role="teacher">
-                        <span class="icon">👨‍🏫</span>
-                        <span>Teacher</span>
-                    </button>
+                    <button class="btn-role" data-role="student"><span class="icon">🎓</span><span>Student</span></button>
+                    <button class="btn-role" data-role="teacher"><span class="icon">👨‍🏫</span><span>Teacher</span></button>
                 </div>
             </div>
         </section>
@@ -49,22 +43,15 @@
                 <h2>Teacher Dashboard</h2>
                 <div class="teacher-controls">
                     <div class="filter-group">
-                        <select id="filter-class">
-                            <option value="9th">9th Class</option>
-                            <option value="10th">10th Class</option>
-                        </select>
-                        <select id="filter-section">
-                            <option value="" disabled selected>Select Section</option>
-                        </select>
+                        <select id="filter-class"><option value="9th">9th Class</option><option value="10th">10th Class</option></select>
+                        <select id="filter-section"><option value="" disabled selected>Select Section</option></select>
                         <button id="download-section-report" class="btn-secondary btn-sm">Download Section Report</button>
                     </div>
-                    <button id="reset-data-btn" class="btn-danger btn-sm">Reset System (Delete All Data)</button>
+                    <button id="reset-data-btn" class="btn-danger btn-sm">Reset System</button>
                 </div>
                 <div class="table-container">
                     <table id="students-table">
-                        <thead>
-                            <tr><th>Sr. No</th><th>Roll No</th><th>Name</th><th>Father Name</th><th>Contact</th><th>MCQ Mark</th><th>Time</th><th>Subjective</th><th>Total</th><th>%</th><th>Status</th><th>Grade</th></tr>
-                        </thead>
+                        <thead><tr><th>Sr. No</th><th>Roll No</th><th>Name</th><th>Father Name</th><th>Contact</th><th>MCQ Mark</th><th>Time</th><th>Subjective</th><th>Total</th><th>%</th><th>Status</th><th>Grade</th></tr></thead>
                         <tbody></tbody>
                     </table>
                 </div>
@@ -160,9 +147,9 @@
                 </div>
                 <p style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 20px;">Official MCQ Result Card</p>
                 <div style="text-align: left; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
-                    <p style="margin: 5px 0;"><strong>Name:</strong> <span id="png-name"></span></p>
-                    <p style="margin: 5px 0;"><strong>Father:</strong> <span id="png-father"></span></p>
-                    <p style="margin: 5px 0;"><strong>Test:</strong> <span id="png-test"></span></p>
+                    <p><strong>Name:</strong> <span id="png-name"></span></p>
+                    <p><strong>Father:</strong> <span id="png-father"></span></p>
+                    <p><strong>Test:</strong> <span id="png-test"></span></p>
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
                     <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;"><small>MARKS</small><span id="png-marks" style="font-size: 1.2rem; font-weight: 700; color: #00f2fe;">0/8</span></div>
@@ -170,17 +157,21 @@
                     <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;"><small>TIME</small><span id="png-time" style="font-size: 1.1rem; font-weight: 600;">00:00</span></div>
                     <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;"><small>STATUS</small><span id="png-status" style="font-size: 1.1rem; font-weight: 600;">PASS</span></div>
                 </div>
-                <div style="display: flex; justify-content: space-around; font-size: 0.8rem;"><span>Correct: <span id="png-correct" style="color: #00ff88;">0</span></span><span>Wrong: <span id="png-wrong" style="color: #ff4b2b;">0</span></span></div>
+                <div><span>Correct: <span id="png-correct" style="color: #00ff88;">0</span></span> | <span>Wrong: <span id="png-wrong" style="color: #ff4b2b;">0</span></span></div>
                 <p style="margin-top: 25px; font-size: 0.6rem; opacity: 0.5;">teachersacademy.com.pk | System Generated</p>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPTS - ORDER IS IMPORTANT -->
+    <!-- ========== SCRIPTS - ORDER IS CRITICAL ========== -->
+    <!-- 1. Supabase library FIRST -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- 2. PDF and Canvas libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- 3. Your data -->
     <script src="data.js"></script>
+    <!-- 4. Your app LAST -->
     <script src="app.js"></script>
 </body>
 </html>
