@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chemistry Test May-2026 - Teachers Academy</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <!-- Landing Screen -->
         <section id="landing-screen" class="active">
             <div class="glass-card">
                 <img src="logo.png.jpeg" alt="Teachers Academy Logo" class="logo animate-glow" onerror="this.src='https://via.placeholder.com/150?text=LOGO'">
@@ -21,7 +19,6 @@
             </div>
         </section>
 
-        <!-- Role Selection -->
         <section id="role-selection">
             <div class="glass-card">
                 <h2>Select Your Role</h2>
@@ -38,7 +35,6 @@
             </div>
         </section>
 
-        <!-- Teacher Login -->
         <section id="teacher-login">
             <div class="glass-card">
                 <h2>Teacher Access</h2>
@@ -48,7 +44,6 @@
             </div>
         </section>
 
-        <!-- Teacher Panel -->
         <section id="teacher-panel">
             <div class="glass-card wide">
                 <h2>Teacher Dashboard</h2>
@@ -68,87 +63,42 @@
                 <div class="table-container">
                     <table id="students-table">
                         <thead>
-                            <tr>
-                                <th>Sr. No</th>
-                                <th>Roll No</th>
-                                <th>Name</th>
-                                <th>Father Name</th>
-                                <th>Contact</th>
-                                <th>MCQ Mark</th>
-                                <th>Time</th>
-                                <th>Subjective</th>
-                                <th>Total</th>
-                                <th>%</th>
-                                <th>Status</th>
-                                <th>Grade</th>
-                            </tr>
+                            <tr><th>Sr. No</th><th>Roll No</th><th>Name</th><th>Father Name</th><th>Contact</th><th>MCQ Mark</th><th>Time</th><th>Subjective</th><th>Total</th><th>%</th><th>Status</th><th>Grade</th></tr>
                         </thead>
-                        <tbody>
-                            <!-- Data injected by JS -->
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
                 <button class="btn-back">Logout</button>
             </div>
         </section>
 
-        <!-- Student Registration -->
         <section id="student-registration">
             <div class="glass-card">
                 <h2>Student Access</h2>
-                
                 <form id="registration-form">
                     <p class="warning-text">Fill your details to start. (Max 3 per number)</p>
-                    
-                    <!-- Profile Selection (Visible only if number is registered) -->
                     <div id="profile-selection-step" style="display: none;">
                         <h3>Welcome Back!</h3>
                         <p class="warning-text">Registered profiles found. Select yours or register a new one below.</p>
                         <div id="profile-list" class="chapter-grid"></div>
                         <div class="divider"><span>OR CONTINUE REGISTRATION</span></div>
                     </div>
-
-                    <div class="input-group">
-                        <input type="text" id="student-name" placeholder="Full Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" id="father-name" placeholder="Father's Name" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="tel" id="student-contact" placeholder="Contact (03XXXXXXXXX)" pattern="03[0-9]{9}" required title="Format: 03XXXXXXXXX">
-                    </div>
+                    <div class="input-group"><input type="text" id="student-name" placeholder="Full Name" required></div>
+                    <div class="input-group"><input type="text" id="father-name" placeholder="Father's Name" required></div>
+                    <div class="input-group"><input type="tel" id="student-contact" placeholder="Contact (03XXXXXXXXX)" pattern="03[0-9]{9}" required></div>
                     <div id="registration-details">
-                        <div class="input-group">
-                            <input type="text" id="student-city" placeholder="City" required>
-                        </div>
+                        <div class="input-group"><input type="text" id="student-city" placeholder="City" required></div>
                         <div class="input-group">
                             <select id="school-name" required>
                                 <option value="" disabled selected>Select Your School</option>
                                 <option value="GHSS ABBASIA">GHSS ABBASIA</option>
-                                <option value="GHSS Model Town">GHSS Model Town</option>
-                                <option value="GHSS Satellite Town">GHSS Satellite Town</option>
-                                <option value="GHS Baghdad">GHS Baghdad</option>
-                                <option value="Teachers Academy">Teachers Academy</option>
                                 <option value="Other">Other</option>
                             </select>
                         </div>
-                        <!-- Conditional GHSS ABBASIA Fields -->
                         <div id="extra-fields" style="display: none;">
-                            <div class="input-group">
-                                <select id="student-class">
-                                    <option value="" disabled selected>Select Class</option>
-                                    <option value="9th">9th Class</option>
-                                    <option value="10th">10th Class</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <select id="student-section">
-                                    <option value="" disabled selected>Select Section</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <input type="number" id="roll-no" placeholder="Roll No (1-77)" min="1" max="77">
-                            </div>
+                            <div class="input-group"><select id="student-class"><option value="" disabled selected>Select Class</option><option value="9th">9th Class</option><option value="10th">10th Class</option></select></div>
+                            <div class="input-group"><select id="student-section"><option value="" disabled selected>Select Section</option></select></div>
+                            <div class="input-group"><input type="number" id="roll-no" placeholder="Roll No (1-77)" min="1" max="77"></div>
                         </div>
                     </div>
                     <button type="submit" id="register-btn" class="btn-primary">Start Practice</button>
@@ -157,38 +107,24 @@
             </div>
         </section>
 
-        <!-- Chapter Selection -->
         <section id="chapter-selection">
             <div class="glass-card">
-                <div class="user-info-bar">
-                    <span id="display-user-name"></span>
-                    <button class="btn-sm btn-secondary" id="logout-student">Change Profile</button>
-                </div>
+                <div class="user-info-bar"><span id="display-user-name"></span><button class="btn-sm btn-secondary" id="logout-student">Change Profile</button></div>
                 <h2>Chemistry Test May-2026</h2>
-                <div id="chapter-list" class="chapter-grid">
-                    <!-- Chapters injected by JS -->
-                </div>
+                <div id="chapter-list" class="chapter-grid"></div>
                 <button class="btn-back">Back to Dashboard</button>
             </div>
         </section>
 
-        <!-- MCQ Test Interface -->
         <section id="test-interface">
             <div class="test-header">
                 <h3 id="current-chapter-title">Chapter Title</h3>
-                <div class="test-stats">
-                    <span id="question-counter">Question 1/8</span>
-                    <span id="timer">00:00</span>
-                </div>
-                <div class="progress-bar">
-                    <div id="progress-fill"></div>
-                </div>
+                <div class="test-stats"><span id="question-counter">Question 1/8</span><span id="timer">00:00</span></div>
+                <div class="progress-bar"><div id="progress-fill"></div></div>
             </div>
             <div class="question-card glass-card">
                 <p id="question-text">Question loading...</p>
-                <div id="options-container" class="options-grid">
-                    <!-- Options injected by JS -->
-                </div>
+                <div id="options-container" class="options-grid"></div>
             </div>
             <div class="test-footer">
                 <button id="next-btn" class="btn-secondary">Next</button>
@@ -196,28 +132,15 @@
             </div>
         </section>
 
-        <!-- Result Card -->
         <section id="result-screen">
             <div class="glass-card">
                 <h2 class="result-title">Test Result</h2>
                 <div class="result-summary">
-                    <div class="score-circle">
-                        <span id="result-percentage">0/8</span>
-                        <small>Marks</small>
-                    </div>
+                    <div class="score-circle"><span id="result-percentage">0/8</span><small>Marks</small></div>
                     <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="label">Time</span>
-                            <span id="result-time" class="value">00:00</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="label">Rank</span>
-                            <span id="result-rank" class="value">#0</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="label">Status</span>
-                            <span id="result-status" class="value text-success">Pass</span>
-                        </div>
+                        <div class="stat-item"><span class="label">Time</span><span id="result-time" class="value">00:00</span></div>
+                        <div class="stat-item"><span class="label">Rank</span><span id="result-rank" class="value">#0</span></div>
+                        <div class="stat-item"><span class="label">Status</span><span id="result-status" class="value text-success">Pass</span></div>
                     </div>
                 </div>
                 <div class="result-actions">
@@ -229,7 +152,6 @@
             </div>
         </section>
 
-        <!-- Hidden PNG Template -->
         <div id="result-png-template" style="position: absolute; left: -9999px; top: -9999px;">
             <div style="width: 400px; padding: 30px; background: linear-gradient(135deg, #0a0b1e 0%, #161b40 100%); color: white; border-radius: 20px; border: 2px solid #00f2fe; text-align: center; font-family: 'Poppins', sans-serif;">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 10px;">
@@ -237,43 +159,24 @@
                     <h2 style="color: #00f2fe; margin: 0; font-family: 'Rajdhani'; text-transform: uppercase;">Teachers Academy</h2>
                 </div>
                 <p style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 20px;">Official MCQ Result Card</p>
-                
                 <div style="text-align: left; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px;">
                     <p style="margin: 5px 0;"><strong>Name:</strong> <span id="png-name"></span></p>
                     <p style="margin: 5px 0;"><strong>Father:</strong> <span id="png-father"></span></p>
                     <p style="margin: 5px 0;"><strong>Test:</strong> <span id="png-test"></span></p>
                 </div>
-
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
-                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;">
-                        <small style="display: block; opacity: 0.7; font-size: 0.7rem;">MARKS</small>
-                        <span id="png-marks" style="font-size: 1.2rem; font-weight: 700; color: #00f2fe;">0/8</span>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;">
-                        <small style="display: block; opacity: 0.7; font-size: 0.7rem;">RANK</small>
-                        <span id="png-rank" style="font-size: 1.2rem; font-weight: 700; color: #f093fb;">#0</span>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;">
-                        <small style="display: block; opacity: 0.7; font-size: 0.7rem;">TIME</small>
-                        <span id="png-time" style="font-size: 1.1rem; font-weight: 600;">00:00</span>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;">
-                        <small style="display: block; opacity: 0.7; font-size: 0.7rem;">STATUS</small>
-                        <span id="png-status" style="font-size: 1.1rem; font-weight: 600;">PASS</span>
-                    </div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;"><small>MARKS</small><span id="png-marks" style="font-size: 1.2rem; font-weight: 700; color: #00f2fe;">0/8</span></div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;"><small>RANK</small><span id="png-rank" style="font-size: 1.2rem; font-weight: 700; color: #f093fb;">#0</span></div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;"><small>TIME</small><span id="png-time" style="font-size: 1.1rem; font-weight: 600;">00:00</span></div>
+                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px;"><small>STATUS</small><span id="png-status" style="font-size: 1.1rem; font-weight: 600;">PASS</span></div>
                 </div>
-
-                <div style="display: flex; justify-content: space-around; font-size: 0.8rem; opacity: 0.9;">
-                    <span>Correct: <span id="png-correct" style="color: #00ff88;">0</span></span>
-                    <span>Wrong: <span id="png-wrong" style="color: #ff4b2b;">0</span></span>
-                </div>
-                
+                <div style="display: flex; justify-content: space-around; font-size: 0.8rem;"><span>Correct: <span id="png-correct" style="color: #00ff88;">0</span></span><span>Wrong: <span id="png-wrong" style="color: #ff4b2b;">0</span></span></div>
                 <p style="margin-top: 25px; font-size: 0.6rem; opacity: 0.5;">teachersacademy.com.pk | System Generated</p>
             </div>
         </div>
     </div>
 
-    <!-- IMPORTANT: Load Supabase FIRST, then other libraries, then app.js LAST -->
+    <!-- SCRIPTS - ORDER IS IMPORTANT -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
