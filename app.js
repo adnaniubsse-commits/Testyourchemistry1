@@ -7,14 +7,24 @@ const SUPABASE_URL = 'https://qwkezbozpmcfmviddgmi.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_DwWXHm5MCStW8RKTY2o2Bj_lqi_jACS';
 
 // Initialize Supabase
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-console.log('✅ Supabase initialized!');
+let supabaseClient;
 
-// Test function - run this to verify Supabase works
+try {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+    console.log('✅ Supabase initialized!');
+} catch(e) {
+    console.error('Supabase init error:', e);
+}
+
+// Test function
 window.testSupabase = async function() {
+    if (!supabaseClient) {
+        console.error("Supabase not initialized!");
+        return;
+    }
     console.log("Testing Supabase...");
     try {
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('student_results')
             .insert([{
                 name: "TEST_USER",
@@ -32,37 +42,10 @@ window.testSupabase = async function() {
                 time_taken: "00:30"
             }]);
         if (error) console.error("❌ Error:", error);
-        else console.log("✅ SUCCESS! Data saved to Supabase!");
+        else console.log("✅ SUCCESS! Data saved to Supabase! Check your table!");
     } catch(err) {
         console.error("❌ Exception:", err);
     }
 };
 
-// Save to Supabase
-async function saveToSupabase(studentData, testResult) {
-    try {
-        const { data, error } = await supabase
-            .from('student_results')
-            .insert([{
-                name: studentData.name,
-                father_name: studentData.fatherName,
-                contact: studentData.contact,
-                class: studentData.class || "10th",
-                section: studentData.section || "A",
-                roll_no: parseInt(studentData.rollNo) || 0,
-                mcq_marks: testResult.marks,
-                subjective_marks: 0,
-                total_marks: testResult.marks,
-                percentage: Math.round((testResult.marks / 8) * 100),
-                status: testResult.marks >= 4 ? "Pass" : "Fail",
-                grade: testResult.marks >= 4 ? "Pass" : "Fail",
-                time_taken: testResult.timeTaken
-            }]);
-        if (error) console.error("❌ Supabase error:", error);
-        else console.log("✅ Saved to Supabase!");
-    } catch(err) {
-        console.error("❌ Save error:", err);
-    }
-}
-
-console.log("App loaded - Supabase ready!");
+console.log("App loaded - Type testSupabase() to test");
