@@ -1,15 +1,16 @@
 /**
  * Teachers Academy Bahawalpur - MCQ Practice App
- * Core Application Logic
+ * Core Application Logic with Supabase Cloud Integration
  */
 // Supabase Configuration
 const SUPABASE_URL = 'https://qwkezbozpmcfmviddgmi.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_DwWXHm5MCStW8RKTY2oB2A_lqi_jACS';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_DwWXHm5MCStW8RKTY2o2Bj_lqi_jACS';
 
 // Initialize Supabase client
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
-console.log('Supabase initialized!');
+console.log('✅ Supabase initialized!');
+
 // --- State Management ---
 const state = {
     chapters: [],
@@ -27,6 +28,92 @@ const state = {
     results: JSON.parse(localStorage.getItem('ta_results')) || [], // [{contact, name, chapterId, score, marks, timeTaken, timeElapsed, date, subjective}]
     students: JSON.parse(localStorage.getItem('ta_students')) || {} // {contact: [studentData]}
 };
+
+// --- Supabase Cloud Functions ---
+
+// Save student result to Supabase cloud
+async function saveToSupabase(studentData, testResult) {
+    try {
+        const { data, error } = await supabase
+            .from('student_results')
+            .insert([
+                {
+                    name: studentData.name,
+                    father_name: studentData.fatherName,
+                    contact: studentData.contact,
+                    class: studentData.class,
+                    section: studentData.section,
+                    roll_no: parseInt(studentData.rollNo) || 0,
+                    mcq_marks: testResult.marks,
+                    subjective_marks: testResult.subjective || 0,
+                    total_marks: testResult.marks + (testResult.subjective || 0),
+                    percentage: Math.round(((testResult.marks + (testResult.subjective || 0)) / 18) * 100),
+                    status: testResult.marks >= 4 ? "Pass" : "Fail",
+                    grade: calculateGrade(Math.round(((testResult.marks + (testResult.subjective || 0)) / 18) * 100)).grade,
+                    time_taken: testResult.timeTaken
+                }
+            ]);
+
+        if (error) {
+            console.error('❌ Supabase save failed:', error);
+        } else {
+            console.log('✅ Saved to Supabase cloud!', data);
+        }
+    } catch (err) {
+        console.error('❌ Supabase error:', err);
+    }
+}
+
+// Load all student results from Supabase cloud
+async function loadFromSupabase() {
+    try {
+        const { data, error } = await supabase
+            .from('student_results')
+            .select('*')
+            .order('mcq_marks', { ascending: false });
+
+        if (error) {
+            console.error('❌ Error loading from Supabase:', error);
+            return [];
+        }
+
+        console.log('✅ Loaded from Supabase:', data.length, 'records');
+        return data;
+    } catch (err) {
+        console.error('❌ Supabase load error:', err);
+        return [];
+    }
+}
+
+// Sync local results with Supabase (load cloud data into local state)
+async function syncFromCloud() {
+    const cloudResults = await loadFromSupabase();
+    if (cloudResults.length > 0) {
+        // Convert cloud format to local format
+        const convertedResults = cloudResults.map(r => ({
+            contact: r.contact,
+            name: r.name,
+            chapterId: 1,
+            marks: r.mcq_marks,
+            score: Math.round((r.mcq_marks / 8) * 100),
+            timeTaken: r.time_taken,
+            timeElapsed: 0,
+            date: new Date().toISOString(),
+            subjective: r.subjective_marks
+        }));
+        
+        // Merge with existing results (avoid duplicates)
+        const existingContacts = new Set(state.results.map(r => `${r.contact}_${r.name}`));
+        for (const cr of convertedResults) {
+            const key = `${cr.contact}_${cr.name}`;
+            if (!existingContacts.has(key)) {
+                state.results.push(cr);
+                existingContacts.add(key);
+            }
+        }
+        saveToStorage();
+    }
+}
 
 // --- Expanded Dummy Data (10 Students) ---
 const DUMMY_DATA = {
@@ -64,7 +151,7 @@ const testInterface = document.getElementById('test-interface');
 const resultScreen = document.getElementById('result-screen');
 
 // --- Initialization ---
-function init() {
+async function init() {
     try {
         state.chapters = MCQ_DATA.chapters;
         if (Object.keys(state.students).length === 0) {
@@ -72,6 +159,10 @@ function init() {
             state.results = DUMMY_DATA.results;
             saveToStorage();
         }
+        
+        // Sync with Supabase cloud
+        await syncFromCloud();
+        
         setTimeout(() => {
             if (document.querySelector('.loader')) document.querySelector('.loader').style.display = 'none';
             if (document.getElementById('start-btn')) document.getElementById('start-btn').style.display = 'block';
@@ -130,8 +221,13 @@ function calculateGrade(percentage) {
 }
 
 // --- Teacher Dashboard ---
-document.getElementById('login-btn').addEventListener('click', () => {
-    if (document.getElementById('teacher-pass').value === '2247') { renderTeacherPanel(); showSection('teacher-panel'); }
+document.getElementById('login-btn').addEventListener('click', async () => {
+    if (document.getElementById('teacher-pass').value === '2247') { 
+        // Sync latest data from cloud before showing dashboard
+        await syncFromCloud();
+        renderTeacherPanel(); 
+        showSection('teacher-panel'); 
+    }
     else alert("Incorrect Password!");
 });
 
@@ -144,12 +240,10 @@ function renderTeacherPanel() {
     let sr = 1;
     Object.keys(state.students).forEach(contact => {
         state.students[contact].forEach(student => {
-            // Updated filtering logic
             if (student.school === 'GHSS ABBASIA') {
                 if (student.class !== classVal) return;
                 if (secVal && student.section !== secVal) return;
             } else if (classVal || secVal) {
-                // For non-GHSS ABBASIA students, only filter if specific class/section selected
                 if (classVal && student.class !== classVal) return;
                 if (secVal && student.section !== secVal) return;
             }
@@ -184,16 +278,43 @@ function renderTeacherPanel() {
 document.getElementById('filter-class').addEventListener('change', renderTeacherPanel);
 document.getElementById('filter-section').addEventListener('change', renderTeacherPanel);
 
-window.updateSubjective = (contact, name, val) => {
+window.updateSubjective = async (contact, name, val) => {
     const res = state.results.find(r => r.contact === contact && r.name === name);
-    if (res) { res.subjective = parseFloat(val) || 0; saveToStorage(); renderTeacherPanel(); }
+    if (res) { 
+        res.subjective = parseFloat(val) || 0; 
+        saveToStorage(); 
+        
+        // Also update in Supabase
+        const total = (res.marks || 0) + res.subjective;
+        const percentage = Math.round((total / 18) * 100);
+        const gradeInfo = calculateGrade(percentage);
+        
+        try {
+            const { error } = await supabase
+                .from('student_results')
+                .update({
+                    subjective_marks: res.subjective,
+                    total_marks: total,
+                    percentage: percentage,
+                    status: gradeInfo.status,
+                    grade: gradeInfo.grade
+                })
+                .eq('contact', contact)
+                .eq('name', name);
+            
+            if (error) console.error('Supabase update error:', error);
+            else console.log('✅ Updated Supabase');
+        } catch(err) { console.error(err); }
+        
+        renderTeacherPanel(); 
+    }
 };
 
 document.getElementById('download-section-report').addEventListener('click', () => {
     const classVal = document.getElementById('filter-class').value;
     const secVal = document.getElementById('filter-section').value;
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF('landscape'); // Landscape to fit Contact number
+    const doc = new jsPDF('landscape');
     
     doc.setFontSize(20); doc.text(`GHSS ABBASIA - SECTIONAL RESULT`, 148, 15, { align: "center" });
     doc.setFontSize(12); doc.text(`Class: ${classVal} | Section: ${secVal}`, 148, 22, { align: "center" });
@@ -245,7 +366,15 @@ document.getElementById('download-section-report').addEventListener('click', () 
 });
 
 document.getElementById('reset-data-btn').addEventListener('click', () => {
-    if (confirm("Delete ALL data?")) { localStorage.clear(); location.reload(); }
+    if (confirm("Delete ALL local data? (Cloud data will remain)")) { 
+        localStorage.clear(); 
+        state.results = [];
+        state.attempts = {};
+        state.students = {};
+        saveToStorage();
+        alert("Local data cleared. Cloud data preserved.");
+        location.reload(); 
+    }
 });
 
 // --- Student Access ---
@@ -391,7 +520,7 @@ function selectOption(qId, idx) {
 document.getElementById('next-btn').addEventListener('click', () => { if (state.currentQuestionIndex < 7) { state.currentQuestionIndex++; renderQuestion(true); } });
 document.getElementById('submit-test-btn').addEventListener('click', submitTest);
 
-function submitTest() {
+async function submitTest() {
     clearInterval(state.questionTimerInterval); clearInterval(state.timerInterval);
     let correct = 0; state.currentChapter.questions.forEach(q => { if (state.answers[q.id] === q.answer) correct++; });
     const contact = state.user.contact; const chId = state.currentChapter.id;
@@ -403,7 +532,12 @@ function submitTest() {
         timeTaken: `${Math.floor(state.timeElapsed / 60).toString().padStart(2, '0')}:${(state.timeElapsed % 60).toString().padStart(2, '0')}`,
         timeElapsed: state.timeElapsed, date: new Date().toISOString(), subjective: 0
     };
-    state.results.push(res); saveToStorage(); showResult(res);
+    state.results.push(res); saveToStorage(); 
+    
+    // Save to Supabase cloud
+    await saveToSupabase(state.user, res);
+    
+    showResult(res);
 }
 
 function showResult(r) {
@@ -437,7 +571,6 @@ document.getElementById('download-png-btn').addEventListener('click', () => {
 
     const template = document.getElementById('result-png-template');
     
-    // Temporarily bring to view for capture
     const originalStyle = template.style.cssText;
     template.style.position = "fixed";
     template.style.left = "0";
@@ -485,4 +618,5 @@ function saveToStorage() {
     localStorage.setItem('ta_students', JSON.stringify(state.students));
 }
 
+// Start the app
 init();
