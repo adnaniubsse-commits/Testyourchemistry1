@@ -1,0 +1,85 @@
+============================================================
+       TEACHERS ACADEMY BAHAWALPUR - MCQ PORTAL
+              PROJECT HISTORY & LOG
+============================================================
+
+PROJECT NAME: Chemistry Test May-2026
+DEVELOPER: Gemini CLI Assistant
+CLIENT: Teachers Academy Bahawalpur
+
+------------------------------------------------------------
+1. CORE REQUIREMENTS & FEATURES (UPDATED)
+------------------------------------------------------------
+- Mobile-first, futuristic web application (Glassmorphism theme).
+- Offline-friendly (Works directly via index.html).
+- Role-based access: Student and Teacher (Password: 2247).
+- Student Access: 
+    - Auto-lookup login based on Contact Number.
+    - Support for up to 3 student profiles per mobile number.
+- Registration (GHSS ABBASIA specific):
+    - Dynamic Class (9th/10th) and Section selection.
+    - Sections: 9th (A-I, S), 10th (A-I, J).
+    - Unique Roll No (1-77) per Class/Section.
+- Test Rule: 8 random questions, 15-second timer per question (Auto-advance).
+- Scoring: 1.0 mark per correct answer (Total 8.0 MCQ marks).
+- Multi-Marks System: MCQ (8) + Subjective (10) = 18 Total Marks.
+
+------------------------------------------------------------
+2. PROJECT ARCHITECTURE (FILES)
+------------------------------------------------------------
+- index.html    : Updated with PNG templates and enhanced dashboard headers.
+- style.css     : Added logo fixes, spherical styling, and teacher dashboard controls.
+- app.js        : Core engine with ranking, PNG generation, and professional reporting.
+- data.js       : MCQ Database (50 questions).
+- logo.png.jpeg : Restored to 120px spherical shape.
+
+------------------------------------------------------------
+3. TECHNICAL LOG & LATEST UPDATES (MAY 2026)
+------------------------------------------------------------
+
+[PHASE 5: PERFORMANCE & LOGIC]
+- Optimized loading speed: Reduced initialization delay from 1500ms to 300ms.
+- Retained "Next" button in tests to assess student time management.
+- Implemented 15-second auto-advance per question.
+
+[PHASE 6: RESULTS & SHARING]
+- Integrated html2canvas for Student Result PNG cards.
+- Added WhatsApp Share button with formatted result text (Marks, Rank, Time, Status).
+- Implemented global Ranking: Ranked by Marks (Desc) then Time Taken (Asc).
+
+[PHASE 7: ENHANCED TEACHER DASHBOARD]
+- Expanded Table: Sr. No, Roll No, Name, Father, Contact, MCQ, Time, Subjective, Total, %, Status, Grade.
+- Subjective Marking: Teachers can manually enter marks (out of 10) directly in the table.
+- Grading System: 
+    - < 50%: Fail | 50-60%: D | 60-80%: C | 80-90%: B | 90-95%: A | > 95%: A+
+- Reset Feature: "Reset System" button to clear all data before deployment.
+
+[PHASE 8: PROFESSIONAL PDF REPORTING]
+- Layout: 2-page Landscape PDF designed for exactly 77 students.
+- Logic: Automatically sequences Roll Nos 1 to 77.
+- Attendance: Missing students are marked as "--- ABSENT ---".
+- Summary Footer: Includes Total Appeared, Absent, Fail, and Pass Percentage.
+- Data: Includes Student Contact Numbers in the export.
+
+[PHASE 9: REFINEMENTS & VALIDATION (MAY 6, 2026)]
+- Timer Update: Increased MCQ auto-advance timer from 10s to 15s.
+- Branding: Added Academy Logo to the Student Result PNG Card (Top-Left).
+- PNG Stability: Fixed download issues by optimizing template visibility and rendering delay.
+- Validation: Updated Student Contact Number to 11-digit format (03XXXXXXXXX).
+- UI Logic: Enhanced Teacher Dashboard with dynamic Class and Section filtering.
+
+------------------------------------------------------------
+4. DEPLOYMENT & GITHUB
+------------------------------------------------------------
+Repository: adnaniubsse-cmmots/ChemistryTestMat-26
+Steps to Sync:
+1. Open PowerShell/CMD in project folder.
+2. git init
+3. git remote add origin https://github.com/adnaniubsse-cmmots/ChemistryTestMat-26.git
+4. git add .
+5. git commit -m "Full update: PNG, Reports, Subjective Marks, Speed"
+6. git push -u origin main
+
+============================================================
+      SESSION COMPLETED - MAY 6, 2026
+============================================================

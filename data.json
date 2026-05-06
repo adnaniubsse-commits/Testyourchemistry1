@@ -1,0 +1,560 @@
+{
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Chapter 1: Mathematics MCQ Test",
+      "questions": [
+        {
+          "id": 1,
+          "question": "The branch of science that deals with the properties, composition, and structure of substances is:",
+          "options": [
+            "Biology",
+            "Chemistry",
+            "Physics",
+            "Geology"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 2,
+          "question": "Determining the percentages of elements and compounds in a sample is called:",
+          "options": [
+            "Structure",
+            "Composition",
+            "Physical change",
+            "Principle"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 3,
+          "question": "The \"structure of matter\" specifically refers to the:",
+          "options": [
+            "Weight of atoms",
+            "Color of the sample",
+            "Arrangement of atoms in matter",
+            "Speed of molecules"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 4,
+          "question": "Physical and chemical changes in matter are brought about by:",
+          "options": [
+            "Only cooling",
+            "Absorption or evolution of energy",
+            "Only heating",
+            "No energy change"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 5,
+          "question": "Why is chemistry divided into different branches?",
+          "options": [
+            "To make it harder",
+            "To reduce the number of atoms",
+            "To concentrate on specific aspects and achieve breakthroughs",
+            "Because elements are too small"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 6,
+          "question": "Which branch investigates how substances behave at atomic and molecular levels?",
+          "options": [
+            "Organic Chemistry",
+            "Inorganic Chemistry",
+            "Physical Chemistry",
+            "Biochemistry"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 7,
+          "question": "Physical chemistry provides explanations for the physical laws governing:",
+          "options": [
+            "Space only",
+            "Atoms and molecules",
+            "Large rocks only",
+            "Electricity only"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 8,
+          "question": "Rates of reactions are predicted and optimized in which branch?",
+          "options": [
+            "Analytical Chemistry",
+            "Physical Chemistry",
+            "Nuclear Chemistry",
+            "Environmental Chemistry"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 9,
+          "question": "Inorganic chemistry is the study of elements and compounds that contain:",
+          "options": [
+            "Only carbon",
+            "High amounts of carbon",
+            "Little or no carbon",
+            "Only hydrogen"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 10,
+          "question": "Fertilizers, medicines, and pigments are applications of which branch?",
+          "options": [
+            "Astrochemistry",
+            "Organic Chemistry",
+            "Inorganic Chemistry",
+            "Physical Chemistry"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 11,
+          "question": "Organic chemistry deals with the study of:",
+          "options": [
+            "Metals and non-metals",
+            "Hydrocarbons and their derivatives",
+            "Only noble gases",
+            "Minerals"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 12,
+          "question": "Carbonates and bicarbonates are excluded from the study of:",
+          "options": [
+            "Physical Chemistry",
+            "Inorganic Chemistry",
+            "Organic Chemistry",
+            "Analytical Chemistry"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 13,
+          "question": "Organic compounds are essential for:",
+          "options": [
+            "Only rocks",
+            "Only space",
+            "All forms of life",
+            "Only the sun"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 14,
+          "question": "The scientific study of chemical phenomena in the air, soil, and water is:",
+          "options": [
+            "Geochemistry",
+            "Environmental Chemistry",
+            "Physical Chemistry",
+            "Analytical Chemistry"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 15,
+          "question": "Environmental chemistry helps in understanding the solutions for:",
+          "options": [
+            "Gravity",
+            "Pollution",
+            "Nuclear decay",
+            "Atomic structure"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 16,
+          "question": "The branch dealing with the separation, identification, and concentration of components is:",
+          "options": [
+            "Biochemistry",
+            "Analytical Chemistry",
+            "Inorganic Chemistry",
+            "Polymer Chemistry"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 17,
+          "question": "Modern analytical chemistry relies heavily on:",
+          "options": [
+            "Simple visual checks",
+            "Sophisticated instruments",
+            "Only weight scales",
+            "Guesswork"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 18,
+          "question": "The study of vital processes occurring in living organisms is called:",
+          "options": [
+            "Organic Chemistry",
+            "Biochemistry",
+            "Medicinal Chemistry",
+            "Astrochemistry"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 19,
+          "question": "Proteins, carbohydrates, and lipids are primary topics in:",
+          "options": [
+            "Physical Chemistry",
+            "Inorganic Chemistry",
+            "Biochemistry",
+            "Nuclear Chemistry"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 20,
+          "question": "Nuclear chemistry deals with the reactions taking place in the:",
+          "options": [
+            "Electrons",
+            "Nucleus of an atom",
+            "Outer shells",
+            "Chemical bonds"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 21,
+          "question": "Radioactivity and nuclear transformations are studied in:",
+          "options": [
+            "Analytical Chemistry",
+            "Nuclear Chemistry",
+            "Environmental Chemistry",
+            "Geochemistry"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 22,
+          "question": "Nuclear chemistry has applications in:",
+          "options": [
+            "Only music",
+            "Agriculture, medicine, and industry",
+            "Only history",
+            "Only clothing"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 23,
+          "question": "Large molecules made by linking together a series of building blocks are:",
+          "options": [
+            "Atoms",
+            "Ions",
+            "Polymers",
+            "Minerals"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 24,
+          "question": "Cellulose and nucleic acids are examples of:",
+          "options": [
+            "Simple salts",
+            "Naturally occurring polymers",
+            "Noble gases",
+            "Radioactive isotopes"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 25,
+          "question": "Geochemistry is the study of the chemical composition of:",
+          "options": [
+            "The Sun",
+            "Earth and its minerals",
+            "Stars",
+            "Living cells"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 26,
+          "question": "Geochemical mapping today is used for:",
+          "options": [
+            "Designing furniture",
+            "Mineral exploration and environmental monitoring",
+            "Making clothes",
+            "Cleaning water"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 27,
+          "question": "Medicinal chemistry focuses on the design and synthesis of:",
+          "options": [
+            "Paints",
+            "Fuels",
+            "Beneficial drugs",
+            "Fertilizers"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 28,
+          "question": "The study of the metabolism of drugs in the human body falls under:",
+          "options": [
+            "Analytical Chemistry",
+            "Medicinal Chemistry",
+            "Geochemistry",
+            "Physical Chemistry"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 29,
+          "question": "Astrochemistry is the study of molecules and ions in:",
+          "options": [
+            "The Earth's core",
+            "The human brain",
+            "Space and interstellar space",
+            "Deep oceans"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 30,
+          "question": "Anything that carries weight and occupies volume is called:",
+          "options": [
+            "Energy",
+            "Matter",
+            "Vacuum",
+            "Radiation"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 31,
+          "question": "Which of the following is non-material in nature?",
+          "options": [
+            "Solid",
+            "Liquid",
+            "Energy",
+            "Gas"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 32,
+          "question": "The four states of matter observed in everyday life are solid, liquid, gas, and:",
+          "options": [
+            "Dark matter",
+            "BEC",
+            "Plasma",
+            "Liquid crystal"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 33,
+          "question": "Which state of matter has molecules very widely apart with no order?",
+          "options": [
+            "Solid",
+            "Liquid",
+            "Gas",
+            "Crystal"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 34,
+          "question": "The primary states of matter differ due to the strength of:",
+          "options": [
+            "Gravity",
+            "Nuclear force",
+            "Intermolecular forces",
+            "Light"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 35,
+          "question": "Which state of matter is easily compressible?",
+          "options": [
+            "Solid",
+            "Liquid",
+            "Gas",
+            "Plasma"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 36,
+          "question": "Liquids have higher densities than gases because their molecules are:",
+          "options": [
+            "Far apart",
+            "Closely attached but moving randomly",
+            "Fixed in position",
+            "Non-existent"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 37,
+          "question": "Which state of matter has a definite shape and a fixed volume?",
+          "options": [
+            "Gas",
+            "Plasma",
+            "Solid",
+            "Supercritical fluid"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 38,
+          "question": "Particles in solids remain fixed but can:",
+          "options": [
+            "Fly away",
+            "Oscillate about their mean positions",
+            "Move to other rooms",
+            "Change into electrons"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 39,
+          "question": "Solids are the only state of matter that do NOT need:",
+          "options": [
+            "Atoms",
+            "Any container to be stored",
+            "Weight",
+            "Energy"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 40,
+          "question": "The most dense substances are generally:",
+          "options": [
+            "Gases",
+            "Liquids",
+            "Crystalline solids",
+            "Plasmas"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 41,
+          "question": "Plasma is composed of particles with very high:",
+          "options": [
+            "Color",
+            "Kinetic energy",
+            "Weight",
+            "Potential energy"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 42,
+          "question": "Plasma exists in which of the following?",
+          "options": [
+            "Ice cubes",
+            "Wood",
+            "Fluorescent tubes and lightning",
+            "Pure water"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 43,
+          "question": "Highly compressed states showing properties of both gases and liquids are:",
+          "options": [
+            "Liquid crystals",
+            "Supercritical fluids",
+            "Plasmas",
+            "Exotic states"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 44,
+          "question": "Supercritical carbon dioxide can be used as a:",
+          "options": [
+            "Food",
+            "Solvent for chemical reactions",
+            "Building material",
+            "Fuel"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 45,
+          "question": "A state of matter with properties between liquids and crystalline solids is:",
+          "options": [
+            "Plasma",
+            "Liquid crystal",
+            "Graphene",
+            "Dark matter"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 46,
+          "question": "Liquid crystals are commonly used in:",
+          "options": [
+            "Car tires",
+            "Display devices like watches and monitors",
+            "Cooking oil",
+            "Building bricks"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 47,
+          "question": "Graphene is an example of a:",
+          "options": [
+            "3D crystal",
+            "Two-dimensional (2",
+            "Gas",
+            "Liquid"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 48,
+          "question": "Which material is described as tough, flexible, light, and high-resistance?",
+          "options": [
+            "Diamond",
+            "Coal",
+            "Graphene",
+            "Iron"
+          ],
+          "answer": 2
+        },
+        {
+          "id": 49,
+          "question": "States of matter like dark matter and Bose-Einstein condensate are called:",
+          "options": [
+            "Primary states",
+            "Exotic states",
+            "Common states",
+            "Normal states"
+          ],
+          "answer": 1
+        },
+        {
+          "id": 50,
+          "question": "Matter in the Sun exists in which state?",
+          "options": [
+            "Solid",
+            "Liquid",
+            "Gas",
+            "Plasma"
+          ],
+          "answer": 3
+        }
+      ]
+    }
+  ]
+}
