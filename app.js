@@ -2,7 +2,14 @@
  * Teachers Academy Bahawalpur - MCQ Practice App
  * Core Application Logic
  */
+// Supabase Configuration
+const SUPABASE_URL = 'https://qwkezbozpmcfmviddgmi.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_DwWXHm5MCStW8RKTY2oB2A_lqi_jACS';
 
+// Initialize Supabase client
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+
+console.log('Supabase initialized!');
 // --- State Management ---
 const state = {
     chapters: [],
